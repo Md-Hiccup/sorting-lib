@@ -108,7 +108,7 @@ class SortMethod:
             self.quick(arr, pi+1, high)  # after pi
         
     
-    #************** 
+    #************** Merge Sort **********************
 
     
     
