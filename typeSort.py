@@ -64,7 +64,7 @@ class CallSort:
 
     def insertArray(self):
         #size = int(input("Enter the size of an array: "))
-        arr = [64, 25, 12, 22, 11]
+        arr = [64, 25, 12, 22, 11, 32, 33, 21, 55]
         #for i in range(size):
          #   s = int(input())
           #  arr.append(s)

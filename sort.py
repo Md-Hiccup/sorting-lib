@@ -110,22 +110,28 @@ class SortMethod:
     
     #************** Merge Sort **********************
 
+
+    # Merges two subarrays of arr[].
+    # First subarray is arr[l..m]       and        Second subarray is arr[m+1..r]
     def merge(self, arr, l, m, r):
         n1 = m-l+1
         n2 = r-m
 
+        # create temp array 
         L = [0] * n1
         R = [0] * n2
 
+        # copy data to temp arrays L[] and R[]
         for i in range(0, n1):
             L[i]= arr[l+i]
 
         for j in range(0, n2):
             R[j]= arr[m+1+j]
 
-        i=0
-        j=0
-        k=l
+        # Merge the temp arrays back into arr[l..r]
+        i=0          # Initial index of first subarray
+        j=0          # Initial index of second subarray
+        k=l          # Initial index of merged subarray
 
         while i < n1 and j < n2:
             if(L[i] <= R[j]):
@@ -136,20 +142,24 @@ class SortMethod:
                 j +=1
             k +=1
 
+        # copy the remaining element of  L[] , if there are any
         while i < n1:
             arr[k] = L[i]
             i += 1
             k += 1
-
+        # copy the remaining element of  R[] , if there are any
         while j < n2:
             arr[k] = R[j]
             j += 1
             k += 1
 
-
+    # l = left index and    r = right index  of the sub-array of arr to be sorted
     def mergeSort(self, arr, l , r):
         if( l < r ):
+            # Same as (l+r)/2, but avoids overflow for large l 
             m = (l+(r-1))//2
+
+            # Sort first and second halves
             self.mergeSort(arr, l, m)
             self.mergeSort(arr, m+1, r)
             self.merge(arr, l, m, r)
