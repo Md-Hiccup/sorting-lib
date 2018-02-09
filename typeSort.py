@@ -7,23 +7,23 @@ class CallSort:
     def bubbleSort(self):
         array = self.insertArray()
         print("BubbleSort")
-        print("Unsorted Array:\t"+str(array)
+        print("Unsorted Array:\t"+str(array))
         s.bubble(array)
-        print("Sorted Array:\t"+str[array])        
+        print("Sorted Array:\t"+str(array))        
 
     def selectionSort(self):
         array = self.insertArray()
         print("SelectionSort")
-        print("Unsorted Array:\t"+str(array)
+        print("Unsorted Array:\t"+str(array))
         s.selection(array)
-        print("Unsorted Array:\t"+str(array)
+        print("Unsorted Array:\t"+str(array))
 
     def insertionSort(self):
         array = self.insertArray()
         print("InsertionSort")
-        print("Unsorted Array:\t"+str(array)
+        print("Unsorted Array:\t"+str(array))
         s.insertion(array)
-        print("Unsorted Array:\t"+str(array)
+        print("Unsorted Array:\t"+str(array))
 
     def heapSort(self):
         array = self.insertArray()
@@ -41,11 +41,12 @@ class CallSort:
         print("Sorted Array:\t"+str(array))
 
 
-    '''def mergeSorting(self):
+    def mergeSorting(self):
         array = self.insertArray()
         print("MergeSort")
-        s.mergeSort(array, 0, len(array)-1)
-   '''
+        print("Unsorted Array:\t"+str(array))
+        s.mergeSort(array, 0, (len(array)-1))
+        print("Sorted Array:\t"+str(array))
     
     inp = {
         1 : bubbleSort,
@@ -53,7 +54,7 @@ class CallSort:
         3 : insertionSort,
         4 : heapSort,
         5 : quickSort,
-      # 6 : mergeSorting,
+        6 : mergeSorting,
     }
 
     def call(self,inputChoice):
