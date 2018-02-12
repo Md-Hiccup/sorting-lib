@@ -122,10 +122,10 @@ class SortMethod:
         R = [0] * n2
 
         # copy data to temp arrays L[] and R[]
-        for i in range(0, n1):
+        for i in range(n1):
             L[i]= arr[l+i]
 
-        for j in range(0, n2):
+        for j in range(n2):
             R[j]= arr[m+1+j]
 
         # Merge the temp arrays back into arr[l..r]
@@ -152,9 +152,11 @@ class SortMethod:
             arr[k] = R[j]
             j += 1
             k += 1
+    count = 0
 
     # l = left index and    r = right index  of the sub-array of arr to be sorted
     def mergeSort(self, arr, l , r):
+        self.count += 1
         if( l < r ):
             # Same as (l+r)/2, but avoids overflow for large l 
             m = (l+(r-1))//2
@@ -164,7 +166,55 @@ class SortMethod:
             self.mergeSort(arr, m+1, r)
             self.merge(arr, l, m, r)
 
-        
+     
+
+     #************ Radix Sort *************************
+
+
+    def radix(self, arr):
+        # Find the maximum number to know number of digits
+        max1 = max(arr)
+
+        # Do counting sort for every digit. Note that instead of passing digit number, exp is passed. exp is 10^i
+        # where i is current digit number
+        exp = 1
+        while max1/exp > 0:
+            self.countingSort(arr,exp)
+            exp *= 10
+
+
+    def countingSort(self, arr, exp1):
+        n = len(arr)
+        # The output array elements that will have sorted arr
+        output = [0] * (n)
+        # initialize count array as 0
+        count = [0] * (10)
+
+        for i in range(n):
+            index = int((arr[i]/exp1))
+            count[(index)%10] += 1
+
+        # change count[i] so that count[i] new contains actual position of this digit in output array
+        for i in range(1, 10):
+            count[i] += count[i-1]
+
+        # Build the output array
+        i = n-1
+        while i>=0:
+            index = int((arr[i]/exp1))
+            output[ count[ (index)%10 ] -1 ] = arr[i]
+            count[ (index)%10 ] -= 1
+            i -= 1
+
+        # copying the output array to arr[], so that arr now contains sorted numbers
+        i = 0
+        for i in range(len(arr)):
+            arr[i] = output[i]
+
+
+
+    #***************
+
     
     
 

@@ -48,6 +48,13 @@ class CallSort:
         s.mergeSort(array, 0, (len(array)-1))
         print("Sorted Array:\t"+str(array))
     
+    def radixSort(self):
+        array = self.insertArray()
+        print("RadixSort")
+        print("Unsorted Array:\t"+ str(array))
+        s.radix(array)
+        print("Sorted Array:\t"+ str(array))
+
     inp = {
         1 : bubbleSort,
         2 : selectionSort,
@@ -55,6 +62,7 @@ class CallSort:
         4 : heapSort,
         5 : quickSort,
         6 : mergeSorting,
+        7 : radixSort
     }
 
     def call(self,inputChoice):
@@ -64,7 +72,7 @@ class CallSort:
 
     def insertArray(self):
         #size = int(input("Enter the size of an array: "))
-        arr = [64, 25, 12, 22, 11, 32, 33, 21, 55]
+        arr = [91,38,27,43,3,9,82,71]
         #for i in range(size):
          #   s = int(input())
           #  arr.append(s)
