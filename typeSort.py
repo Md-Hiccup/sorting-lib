@@ -55,6 +55,13 @@ class CallSort:
         s.radix(array)
         print("Sorted Array:\t"+ str(array))
 
+    def shellSort(self):
+        array = self.insertArray()
+        print("ShellSort")
+        print("Unsorted Array:\t"+ str(array))
+        s.shell(array)
+        print("Sorted Array:\t"+ str(array))
+
     inp = {
         1 : bubbleSort,
         2 : selectionSort,
@@ -62,7 +69,8 @@ class CallSort:
         4 : heapSort,
         5 : quickSort,
         6 : mergeSorting,
-        7 : radixSort
+        7 : radixSort,
+        8 : shellSort
     }
 
     def call(self,inputChoice):
