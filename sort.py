@@ -152,11 +152,11 @@ class SortMethod:
             arr[k] = R[j]
             j += 1
             k += 1
-    count = 0
+   
 
     # l = left index and    r = right index  of the sub-array of arr to be sorted
     def mergeSort(self, arr, l , r):
-        self.count += 1
+        
         if( l < r ):
             # Same as (l+r)/2, but avoids overflow for large l 
             m = (l+(r-1))//2
@@ -241,6 +241,71 @@ class SortMethod:
             gap = int(gap/2)
 
     
-    
 
+    #************** Comb Sort ****************************8
+
+    # Function to sort arr[] using Comb Sort
+    def comb(self, arr):
+        n = len(arr)
+         
+        # Initialize gap
+        gap = n
+         
+            # Initialize swapped as true to make sure that loop runs
+        swapped = True
+         
+        # Keep running while gap is more than 1 and last iteration caused a swap
+        while gap !=1 or swapped == 1:
+ 
+        # Find next gap
+            gap = self.getNextGap(gap)
+ 
+            # Initialize swapped as false so that we can check if swap happened or not
+            swapped = False
+         
+            # Compare all elements with current gap
+            for i in range(0, n-gap):
+                if arr[i] > arr[i + gap]:
+                    arr[i], arr[i + gap]=arr[i + gap], arr[i]
+                    swapped = True
+    
+    # To find next gap from current
+    def getNextGap(self, gap):
+ 
+        # Shrink gap by Shrink factor
+        gap = (gap * 10)//13            # '//'   means convert 2.5 to 2 
+        if gap < 1:
+            return 1
+        return gap
+
+
+
+    # ****************** Pigeonhole Sort ************************
+
+    def pigeonhole(self, arr):
+        # size of range of values in the list 
+        # (ie, number of pigeonholes we need)
+        my_min = min(arr)
+        my_max = max(arr)
+        size = my_max - my_min + 1
+ 
+        # our list of pigeonholes
+        holes = [0] * size
+ 
+        # Populate the pigeonholes.
+        for x in arr:
+            assert type(x) is int, "integers only please"
+            holes[x - my_min] += 1
+ 
+        # Put the elements back into the array in order.
+        i = 0
+        for count in range(size):
+            while holes[count] > 0:
+                holes[count] -= 1
+                arr[i] = count + my_min
+                i += 1 
+
+
+
+    # ******************************************************** 
             

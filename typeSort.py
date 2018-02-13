@@ -62,6 +62,20 @@ class CallSort:
         s.shell(array)
         print("Sorted Array:\t"+ str(array))
 
+    def combSort(self):
+        array = self.insertArray()
+        print("CombSort")
+        print("Unsorted Array:\t"+str(array))
+        s.comb(array)
+        print("Sorted Array:\t"+str(array))
+    
+    def pigeonholeSort(self):
+        array = self.insertArray()
+        print("PigeonholeSort")
+        print("Unsorted Array:\t"+str(array))
+        s.pigeonhole(array)
+        print("Sorted Array:\t"+str(array))
+
     inp = {
         1 : bubbleSort,
         2 : selectionSort,
@@ -70,16 +84,19 @@ class CallSort:
         5 : quickSort,
         6 : mergeSorting,
         7 : radixSort,
-        8 : shellSort
+        8 : shellSort,
+        9 : combSort,
+        10 : pigeonholeSort,
     }
 
     def call(self,inputChoice):
         print("calling... "+ inputChoice)
-        choice = int(inputChoice);
+        choice = int(inputChoice)
         self.inp[choice](self)
 
     def insertArray(self):
         #size = int(input("Enter the size of an array: "))
+        # arr = [8, 4, 1, 3, -44, 23, -6, 28, 0]
         arr = [91,38,27,43,3,9,82,71]
         #for i in range(size):
          #   s = int(input())
